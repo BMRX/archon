@@ -1,0 +1,121 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #404d61;
+	font-family: Consolas, monaco, monospace;
+	overflow: hidden; 
+}
+
+/* Text based stuff */
+
+h1 {
+	font-family: Consolas, monaco, monospace;
+	font-size: 23px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 23px;
+}
+h3 {
+	font-family: Consolas, monaco, monospace;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 23px;
+}
+p {
+	font-family: Consolas, monaco, monospace;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+blockquote {
+	font-family: Consolas, monaco, monospace;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+pre {
+	font-family: Consolas, monaco, monospace;
+	font-size: 11px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+
+/* Main divs */
+
+.wrapper {
+	padding: 0 0 0 0;
+	min-height: 100vh;
+	min-width: 100vh;
+}
+#header {
+	height: 32px;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #242c38;
+	color: lightgray;
+	z-index: 3;
+	/* border: 2px #695a4e solid; */
+	position: fixed;
+	top: 0;
+}
+#header #drag-region {
+	width: 100%;
+	height: 100%;
+	-webkit-app-region: drag;
+}
+#window-controls {
+	display: grid;
+	grid-template-columns: repeat(4, 46px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	font-family: "Segoe MDL2 Assets";
+	font-size: 10px;
+}
+#window-controls .button {
+	grid-row: 1 / span 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+#window-controls #config-button { grid-column: 1; }
+#window-controls #min-button { grid-column: 2; }
+#window-controls #max-button,
+#window-controls #restore-button { grid-column: 3; }
+#window-controls #close-button { grid-column: 4; }
+#window-controls { -webkit-app-region: no-drag;} 
+#window-controls .button { user-select: none; cursor: default; }
+#window-controls .button:hover { background: #494848; }
+#window-controls .button:active { background: #555353; }
+#restore-button { display: none !important; }
+
+.maximized #titlebar {
+	width: 100%;
+	padding: 0;
+}
+
+.maximized #window-title {
+	margin-left: 12px;
+}
+
+.maximized #restore-button {
+	display: flex !important;
+}
+
+.maximized #max-button {
+	display: none;
+}
