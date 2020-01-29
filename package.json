@@ -1,0 +1,22 @@
+{
+  "name": "archon",
+  "version": "1.0.0",
+  "description": "Some sort of idle game. idk",
+  "main": "./scripts/init.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BMRX/archon.git"
+  },
+  "keywords": [
+    "rpg"
+  ],
+  "author": "Mike Bergstrom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BMRX/archon/issues"
+  },
+  "homepage": "https://github.com/BMRX/archon#readme"
+}
