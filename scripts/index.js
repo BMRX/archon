@@ -2,6 +2,8 @@ const { ipcRenderer } = require("electron");
 const remote = require("electron").remote;
 const { fs } = require("fs");
 
+let game;
+
 // When document has loaded, initialise
 document.onreadystatechange = () => {
 	if (document.readyState == "complete") {
@@ -43,9 +45,28 @@ function handleWindowControls() {
 	}
 }
 
-ipcRenderer.on("init", () => {
+ipcRenderer.on("init", (event, arg) => {
+	game = arg;
 	// Hide loading
 	document.getElementById("loading").style.setProperty("display", "none");
 	// Show main screen
-	document.getElementById("content").style.setProperty("display", "block");
+	document.getElementById("main").style.setProperty("display", "block");
+	populateServers();
 });
+
+function populateServers() {
+	console.log(game);
+	if(game.servers.length > 0) {
+		game.servers.forEach(server => {
+			console.log(server);
+		});
+	}
+}
+
+function buildNewServer() {
+	let server = document.createElement("div");
+	server.setAttribute("class", "server");
+	let clockRate = document.createElement("div");
+	clockRate.setAttribute("class", "clockRate");
+	server.appendChild(clockRate);
+}

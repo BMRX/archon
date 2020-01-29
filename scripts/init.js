@@ -3,6 +3,11 @@ const { app, BrowserWindow } = require("electron");
 const { ipcMain } = require("electron");
 const fs = require("fs");
 
+var gameObj = {},
+	saveFile = "./saveFile.json";
+
+load();
+
 app.on("ready", () => {
 	let index = new BrowserWindow({
 		show: false,
@@ -17,15 +22,14 @@ app.on("ready", () => {
 	});
 
 	index.webContents.once("dom-ready", () => {
-		index.webContents.send("init");
+		index.webContents.send("init", gameObj);
 		index.webContents.openDevTools();
 	});
 	index.loadFile("./pages/index.html");
 	index.show();
-
-	
 });
 
+// OLD MIGHT STILL NEED
 // app.on("ready", () => {
 // 	let main = null;
 // 	let loading = new BrowserWindow({
@@ -63,3 +67,17 @@ app.on("ready", () => {
 // 	loading.loadFile("./pages/loading.html");
 // 	loading.show();
 // });
+
+function load() {
+	try {
+		gameObj = JSON.parse(fs.readFileSync(saveFile, { encoding: "utf8" }));
+	} catch (err) {
+		console.log(err);
+		let saveObj = {
+			servers: [],
+			money: 1000,
+		};
+		fs.writeFileSync(saveFile, JSON.stringify(saveObj));
+		console.log("Game save made!");
+	}
+}

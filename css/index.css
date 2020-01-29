@@ -1,15 +1,19 @@
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	width: 100vw;
 	height: 100vh;
 	background-color: #404d61;
 	font-family: Consolas, monaco, monospace;
-	overflow: hidden; 
+	overflow: hidden;
 }
 
 /* Text based stuff */
-
+@font-face {
+	font-family: "LCD";
+	src: url("../assets/fonts/DS-DIGIB.ttf") format("truetype");
+  }
 h1 {
 	font-family: Consolas, monaco, monospace;
 	font-size: 23px;
@@ -51,11 +55,12 @@ pre {
 	line-height: 23px;
 }
 
-/* Main divs */
+/* UI */
 .wrapper {
 	padding: 0 0 0 0;
 	min-height: 100vh;
 	min-width: 100vh;
+	margin-bottom: 100px;
 }
 #header {
 	height: 32px;
@@ -90,33 +95,74 @@ pre {
 	align-items: center;
 	width: 100%;
 	height: 100%;
+	background-color: #242c38;
 }
-#window-controls #config-button { grid-column: 1; }
-#window-controls #min-button { grid-column: 2; }
+#window-controls #config-button {
+	grid-column: 1;
+}
+#window-controls #min-button {
+	grid-column: 2;
+}
 #window-controls #max-button,
-#window-controls #restore-button { grid-column: 3; }
-#window-controls #close-button { grid-column: 4; }
-#window-controls { -webkit-app-region: no-drag;} 
-#window-controls .button { user-select: none; cursor: default; }
-#window-controls .button:hover { background: #494848; }
-#window-controls .button:active { background: #555353; }
-#restore-button { display: none !important; }
-
+#window-controls #restore-button {
+	grid-column: 3;
+}
+#window-controls #close-button {
+	grid-column: 4;
+}
+#window-controls {
+	-webkit-app-region: no-drag;
+}
+#window-controls .button {
+	user-select: none;
+	cursor: default;
+}
+#window-controls .button:hover {
+	background: #323d4d;
+}
+#window-controls .button:active {
+	background: #3c495c;
+}
+#restore-button {
+	display: none !important;
+}
 .maximized #titlebar {
 	width: 100%;
 	padding: 0;
 }
-
 .maximized #window-title {
 	margin-left: 12px;
 }
-
 .maximized #restore-button {
 	display: flex !important;
 }
-
 .maximized #max-button {
 	display: none;
+}
+#main {
+	margin-top: 32px;
+}
+#footer {
+	height: 100px;
+	background-color: #242c38;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-bottom: 0;
+	z-index: 3;
+}
+.btn {
+	background-color: #2d3745;
+	display: inline-block;
+	padding: 5px;
+	cursor: default;
+}
+.btn:hover {
+	background: #323d4d;
+}
+.btn:active {
+	background: #3c495c;
 }
 
 /* Page specific */
@@ -129,6 +175,28 @@ pre {
 	margin-top: 32px;
 	display: none;
 	z-index: 1;
+}
+
+/* Game */
+.server {
+	margin: 0;
+	padding: 0;
+	height: 75px;
+	background-color: #16161a;
+	outline: 2px solid black;
+	outline-offset: -5px;
+}
+
+.server .clockRate {
+	margin: 10px;
+	padding: 5px;
+	display: inline-block;
+	background-color: #0e0000;
+	border: 1px solid #202020;
+	border-style: outset;
+	color: #8e0000;
+	font-family: "LCD", sans-serif;
+	font-size: 24px;
 }
 
 /* animated CSS */
@@ -145,4 +213,40 @@ pre {
 	top: 50%;
 	margin-top: -20px;
 	animation: spin 0.5s ease-in infinite;
+}
+
+.lds-ring {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+.lds-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid #fff;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
