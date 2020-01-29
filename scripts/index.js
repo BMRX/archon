@@ -42,3 +42,10 @@ function handleWindowControls() {
 		}
 	}
 }
+
+ipcRenderer.on("init", () => {
+	// Hide loading
+	document.getElementById("loading").style.setProperty("display", "none");
+	// Show main screen
+	document.getElementById("content").style.setProperty("display", "block");
+});

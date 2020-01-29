@@ -52,7 +52,6 @@ pre {
 }
 
 /* Main divs */
-
 .wrapper {
 	padding: 0 0 0 0;
 	min-height: 100vh;
@@ -64,7 +63,7 @@ pre {
 	box-sizing: border-box;
 	background-color: #242c38;
 	color: lightgray;
-	z-index: 3;
+	/* z-index: 3; */
 	/* border: 2px #695a4e solid; */
 	position: fixed;
 	top: 0;
@@ -118,4 +117,32 @@ pre {
 
 .maximized #max-button {
 	display: none;
+}
+
+/* Page specific */
+#loading {
+	margin-top: 32px;
+	display: block;
+	z-index: 0;
+}
+#content {
+	margin-top: 32px;
+	display: none;
+	z-index: 1;
+}
+
+/* animated CSS */
+.loader {
+	text-align: center;
+	border: 5px solid #24201d;
+	border-top: 5px solid #473d34;
+	border-radius: 75%;
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	left: 50%;
+	margin-left: -20px;
+	top: 50%;
+	margin-top: -20px;
+	animation: spin 0.5s ease-in infinite;
 }
