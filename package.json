@@ -1,22 +1,17 @@
 {
   "name": "archon",
   "version": "1.0.0",
-  "description": "rpg",
-  "main": "init.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "description": "Some sort of idle game. idk",
+  "main": "./scripts/init.js",
   "scripts": {
-    "test": "test"
+    "test": "electron ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BMRX/archon.git"
   },
   "keywords": [
-    "rpg",
-    "javascript",
-    "game"
+    "rpg"
   ],
   "author": "Mike Bergstrom",
   "license": "ISC",

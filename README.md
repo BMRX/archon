@@ -1,3 +1,5 @@
 ## Archon
 
-Node.js, electron, turn based rpg.
+Node.js and electron based idle game.
+
+Might make it for android idk.
