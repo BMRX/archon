@@ -183,20 +183,27 @@ pre {
 	padding: 0;
 	height: 75px;
 	background-color: #16161a;
+	background-image: linear-gradient(to bottom right, #393942, #16161a);
 	outline: 2px solid black;
 	outline-offset: -5px;
 }
+.server:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+  }
 
 .server .clockRate {
-	margin: 10px;
 	padding: 5px;
+	vertical-align: middle;
 	display: inline-block;
-	background-color: #0e0000;
+	background-color: #040b1d;
 	border: 1px solid #202020;
-	border-style: outset;
-	color: #8e0000;
+	border-style: inset;
+	color: #234097;
 	font-family: "LCD", sans-serif;
-	font-size: 24px;
+	font-size: 26px;
 }
 
 /* animated CSS */

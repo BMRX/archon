@@ -1,6 +1,7 @@
 const { ipcRenderer } = require("electron");
 const remote = require("electron").remote;
 const { fs } = require("fs");
+var moment = require("moment");
 
 let game;
 
@@ -56,7 +57,7 @@ ipcRenderer.on("init", (event, arg) => {
 
 function populateServers() {
 	console.log(game);
-	if(game.servers.length > 0) {
+	if (game.servers.length > 0) {
 		game.servers.forEach(server => {
 			console.log(server);
 		});
@@ -64,9 +65,52 @@ function populateServers() {
 }
 
 function buildNewServer() {
+	let newServer = {
+		cores: 1,
+		clock: 1000000,
+		bus: 8,
+		memory: 0,
+		upgrades: 1,
+		curBps: this.ipc * this.clock * this.bus * time,
+	};
+
+	game.servers.push(newServer);
+
 	let server = document.createElement("div");
 	server.setAttribute("class", "server");
 	let clockRate = document.createElement("div");
 	clockRate.setAttribute("class", "clockRate");
 	server.appendChild(clockRate);
+}
+
+// Basic computation implementation, improve for cores, memory, bus, etc.
+function cpu(instructions, server) {
+	let instructionsComplete = 0;
+	let cycles = 0;
+	let clock = server.clock;
+	let runCycle = setInterval(cycle, 1000);
+	let curPrice;
+
+	function cycle() {
+		if (instructionsComplete < instructions) {
+			console.log(moment().format("hh:mm:ss"));
+			console.log(`${instructionsComplete} of ${instructions} total Instructions`)
+			instructionsComplete += instructions / clock;
+			game.curData += instructions / clock;
+			// 5 cents 
+			curPrice += formatMoney(0.05);
+			cycles++;
+		} else {
+			clearInterval(runCycle);
+			console.log(`Total Cycles: ${cycles}`);
+			console.log(`Total Instructions: ${instructionsComplete}`);
+			// Calculate price of total instructions, apply to game object
+			game.money += formatMoney(curPrice);
+		}
+	}
+}
+
+function formatMoney(amt) {
+	let mny = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD '}).format(amt);
+	return mny;
 }

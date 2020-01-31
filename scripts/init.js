@@ -76,6 +76,9 @@ function load() {
 		let saveObj = {
 			servers: [],
 			money: 1000,
+			moneySpent: 0,
+			curData: 0,
+			totData: 0
 		};
 		fs.writeFileSync(saveFile, JSON.stringify(saveObj));
 		console.log("Game save made!");
