@@ -1,5 +1,7 @@
-## Archon
+## Bits 
 
-Node.js and electron based idle game.
+Node.js and Electron based idle game.
 
 Might make it for android idk.
+
+Previously known as Archon.
