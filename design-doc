@@ -1,0 +1,71 @@
+Data generation idle game
+
+Servers generate Data
+Data generates Money
+Money makes more Servers
+
+SI Prefix used for compute speed
+
+deca Hertz: Dhz  10
+hecto Hertz: Hhz 100
+Kilo Hertz: Khz  1000
+Mega hertz: Mhz  1000000
+Giga Hertz: Ghz  1000000000
+Tera Hertz: Thz  1000000000000
+Peta Hertz: Phz  1000000000000000
+Exa Hertz: Ehz   1000000000000000000
+Zetta Hertz: Zhz 1000000000000000000000
+Yotta Hertz: Yhz 1000000000000000000000000
+
+Compute Speed = Multiplier for Data generation
+Clients = Multipler for Data sold
+
+Tech = Autobuyer (employee lol)
+
+# Notes
+Make more efficient Servers, by increasing compute speed
+Maybe some way to configure server layout, Server types?
+Electricity bills?
+Salary for techs?
+Costs for server repairs?
+Downtime?
+
+Individual techs with varying skill level 
+    Speed of repairs
+    Trouble shooting speed
+    
+    Skills increase by "doing" 
+
+    Techs can autobuy upgrades
+
+Sell Data Center for X amount based on production
+
+Server Object:
+    cores: 1 (1 minimum)
+    clock: 100 (not sure what the minimum is yet)
+    busWidth: 8 (8, 16, 32 measured in bits)
+    upgrade: 1 (multiplier for computeSpeed)
+
+100 KHz = 200 Kbps (200 000 bits per second/25 Bytes per second)
+or
+1 : 2 ratio
+source: https://electronics.stackexchange.com/questions/56265/difference-between-hz-and-bps
+
+8 bits = 1 byte
+
+Measure everything in lowest value, convert to higher value for appearances (client side) this might not be efficient but until I find a better way, this is how it is
+
+
+CPU Calculation
+[Code Block] has a number of Instructions
+
+CPU calculates that number of instructions
+
+IPC = instructions per cycle, so then what is a cycle?
+
+Example: A 4GHz CPU does 4 000 000 000 cycles per second
+
+100 Hz = 100 instructions per second
+
+bps = ipc * clock * bus * time
+
