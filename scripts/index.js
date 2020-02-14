@@ -71,7 +71,6 @@ function buildNewServer() {
 		bus: 8,
 		memory: 0,
 		upgrades: 1,
-		curBps: this.ipc * this.clock * this.bus * time,
 	};
 
 	game.servers.push(newServer);
